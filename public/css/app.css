@@ -1,0 +1,38 @@
+#detail {
+    margin: 100px;
+}
+p {
+    margin: 25px;
+}
+
+@font-face {
+    font-family: foodpacker;
+    src: url("../font/Foodpacker.otf");
+}
+
+h1 {
+    font-family: foodpacker, serif;
+    font-size: xxx-large;
+    color: rebeccapurple;
+    margin: auto;
+    text-align: center;
+    height: 25vh;
+    opacity: 100%;
+}
+
+body {
+    margin: 30px;
+}
+
+#pokemon {
+    opacity: 50%;
+}
+
+img {
+    width:100%;
+    height:100%
+}
+
+#pokemon:hover {
+    opacity: 100%;
+}

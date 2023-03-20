@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="ui divider"></div>
+    <div>
+        <div class="ui grid center aligned centered" id="detail">
+            <div>
+                <img class="ui middle aligned image medium" src="{{ asset('img/pokemon/'~pokemon.image) }}" alt="{{ pokemon.nom }}">
+
+            </div>
+            <div>
+                <div><b>Attaque : </b>{{ pokemon.attaque }}</div>
+                <div><b>Défence : </b>{{ pokemon.defense }}</div>
+            </div>
+            <p>
+                {{ pokemon.description }}
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}
+    {{ parent() }} > Details
+{% endblock %}
+
+{% block filariane %}
+    {{ parent() }}
+    <div class="divider"> /</div>
+    <a class="section" href="{{ path('pokemon_liste') }}">Liste</a>
+    <div class="divider"> /</div>
+    <a class="active section">Details</a>
+{% endblock %}
+

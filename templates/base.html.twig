@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Accueil{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/semantic.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {% endblock %}
+    {% block javascripts %}
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="{{ asset('js/semantic.min.js') }}"></script>
+    {% endblock %}
+</head>
+<body>
+<div class="ui container">
+    <div class="ui grid">
+        <div class="ui breadcrumb column">
+            {% block filariane %}<a href="{{ path('home') }}" class="section">Accueil</a>{% endblock %}
+        </div>
+    </div>
+    <div>
+        {% block body %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>

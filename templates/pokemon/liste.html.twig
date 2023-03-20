@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="ui divider"></div>
+    <div class="ui centered grid">
+        <a href="{{ path('pokemon_tri', {'param': 'capture'}) }}">
+            <button class="ui circular primary basic button">Trier par pokemon capturé</button>
+        </a>
+        <a href="{{ path('pokemon_tri', {'param': 'nom'}) }}">
+            <button class="ui circular primary basic button">Trier par nom</button>
+        </a>
+    </div>
+    <div class="ui divider"></div>
+    <div class="grid ui vertically divided">
+        <div class="four column row">
+            {% for pokemon in liste %}
+                <div class="column centered center aligned">
+                    <div class="card raised link ui blue">
+                        <div class="content">
+                            {% if pokemon.estcapture %}
+                                <i class="right floated icon"><img src="{{ asset('img/icon/pokeball-ok.jpg') }}"></i>
+                            {% else %}
+                                <i class="right floated outline icon"><img src="{{ asset('img/icon/pokeball-ko.jpg') }}"></i>
+                            {% endif %}
+                            <div class="header">{{ pokemon.nom }}</div>
+                            <div class="description">
+                                <p>
+                                    <a href="{{ path('pokemon_details', {'id': pokemon.id}) }}">
+                                        <img class="ui medium circular image" src="{{ asset('img/pokemon/'~pokemon.image) }}"
+                                             alt="{{ pokemon.nom }}">
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="extra content">
+                    <span class="right floated star">
+                        {% if pokemon.estCapture %}
+                            <a href="{{ path('pokemon_capture', {'id': pokemon.id}) }}">Relacher</a>
+                     {% else %}
+                            <a href="{{ path('pokemon_capture', {'id': pokemon.id}) }}">Capturer</a>
+                        {% endif %}
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}
+    {{ parent() }} | Liste
+{% endblock %}
+
+{% block filariane %}
+    {{ parent() }}
+    <div class="divider"> /</div>
+    <a class="active section" href="{{ path('pokemon_liste') }}">Liste</a>
+{% endblock %}
